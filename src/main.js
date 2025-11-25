@@ -102,3 +102,47 @@ student.startLearning();
     });
 
 });
+
+if (typeof Swiper !== 'undefined') {
+    const reviewsSwiper = new Swiper('.reviews-slider', {
+        // Опции Swiper
+        direction: 'horizontal',
+        loop: true, // Зацикленный слайдер
+        slidesPerView: 1,
+        spaceBetween: 30,
+        
+        // Навигация (стрелки)
+        navigation: {
+            nextEl: '.reviews-next-btn',
+            prevEl: '.reviews-prev-btn',
+        },
+
+        // Пагинация (точки)
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        // Адаптивные настройки
+        breakpoints: {
+            // Когда ширина экрана >= 768px
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 40
+            },
+            // Когда ширина экрана >= 1200px
+            1200: {
+                slidesPerView: 3,
+                spaceBetween: 50
+            }
+        },
+        
+        // Автоматическая прокрутка (опционально)
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+    });
+} else {
+    console.error('Swiper.js не загружен. Проверьте CDN-ссылку в HTML.');
+}
