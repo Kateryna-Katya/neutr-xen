@@ -103,3 +103,83 @@ h4 {
   box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
   transform: translateY(-2px);
 }
+
+.pages {
+  padding: var(--spacing-xxl) 0;
+  /* СВЕТЛЫЙ ФОН для контента */
+  background-color: var(--color-white);
+  /* Белый */
+  color: var(--color-background-dark);
+  /* Темный текст по умолчанию */
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 600;
+    margin-bottom: var(--spacing-s);
+  color: var(--color-primary);
+  /* Неоновый заголовок сохраняется как акцент */
+font-family: var(--font-heading);
+  /* Темная линия внизу */
+  border-bottom: 2px solid var(--color-grey-dark);
+  padding-bottom: var(--spacing-s);
+}
+
+.last-updated {
+  font-style: italic;
+  color: var(--color-text-light);
+  /* Светло-серый, но читабельный на белом */
+  margin-bottom: var(--spacing-xl);
+}
+
+.pages h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  /* Пурпурный акцент */
+  margin-top: var(--spacing-l);
+  margin-bottom: var(--spacing-m);
+  font-family: var(--font-heading);
+}
+
+.pages h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-background-dark);
+  /* Темный цвет для H3 */
+  margin-top: var(--spacing-m);
+  margin-bottom: var(--spacing-s);
+  font-family: var(--font-heading);
+}
+
+.pages p {
+  line-height: 1.8;
+  margin-bottom: var(--spacing-m);
+  color: var(--color-background-dark);
+  /* Темный основной текст */
+}
+
+.pages ul {
+  list-style: disc;
+  padding-left: var(--spacing-l);
+  margin-bottom: var(--spacing-l);
+  color: var(--color-background-dark);
+  /* Темные маркеры и текст списка */
+}
+
+.pages ul li {
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.6;
+}
+
+/* Адаптивность для внутренних страниц */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.8rem;
+   
+  }
+
+  .pages h2 {
+    font-size: 1.6rem;
+  }
+}

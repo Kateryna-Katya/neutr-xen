@@ -713,7 +713,7 @@
 
 /* 1. БЛОК ФОРМЫ */
 .contact__form-wrapper {
-    padding: var(--spacing-l);
+    padding: var(--spacing-m);
     background-color: var(--color-background-dark);
     /* Немного светлее, чем секция */
     border-radius: 12px;
