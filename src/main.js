@@ -1,3 +1,6 @@
+
+import Swiper from 'swiper';
+import 'swiper/css';
 // Инициализация Lucide Icons
 lucide.createIcons();
 
