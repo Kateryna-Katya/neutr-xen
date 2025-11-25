@@ -258,3 +258,300 @@
         padding: var(--spacing-m);
     }
 }
+
+/* =========================================================================
+   5. СЕКЦИЯ ПРЕИМУЩЕСТВА (#advantages)
+   ========================================================================= */
+
+.advantages {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-white);
+    text-align: center;
+}
+
+.advantages__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-s);
+}
+
+.advantages__subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.advantages__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-l);
+}
+
+/* Стили для карточек преимуществ */
+.advantage-card {
+    background-color: var(--color-background);
+    padding: var(--spacing-l);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-grey-light);
+    transition: all 0.3s ease;
+}
+
+.advantage-card:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2);
+}
+
+/* Изменение цвета текста и иконок при hover */
+.advantage-card:hover .advantage-card__icon,
+.advantage-card:hover .advantage-card__title,
+.advantage-card:hover .advantage-card__description {
+    color: var(--color-white);
+}
+
+.advantage-card__icon {
+    width: 48px;
+    height: 48px;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-s);
+    transition: color 0.3s ease;
+}
+
+.advantage-card__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-s);
+    transition: color 0.3s ease;
+}
+
+.advantage-card__description {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    transition: color 0.3s ease;
+}
+
+.advantages__cta-bottom {
+    margin-top: var(--spacing-xxl);
+}
+
+/* Адаптивность Преимуществ */
+@media (max-width: 992px) {
+    .advantages__title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .advantages {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .advantages__grid {
+        gap: var(--spacing-m);
+    }
+}
+
+/* =========================================================================
+   6. СЕКЦИЯ ТЕХНОЛОГИЯ (#technology)
+   ========================================================================= */
+
+.technology {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+}
+
+.technology__container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+}
+
+.technology__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-m);
+}
+
+.technology__title strong {
+    color: var(--color-primary);
+}
+
+.technology__subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* =========================================================================
+   Блок ШАГОВ (линия + номера)
+   ========================================================================= */
+
+.technology__steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-l);
+    margin-bottom: var(--spacing-xl);
+    padding-left: 20px;
+    position: relative;
+}
+
+/* Вертикальная линия */
+.technology__steps::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 2px;
+    background-color: var(--color-grey-light);
+    height: calc(100% - 40px);
+    /* линия не заходит за последний круг */
+}
+
+/* Карточки шагов */
+.step-card {
+    position: relative;
+    padding-left: var(--spacing-l);
+}
+
+.step-card__number {
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 5px solid var(--color-background);
+    box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+/* =========================================================================
+   Коррекция линии под последним элементом
+   ========================================================================= */
+
+.technology__step--last {
+    position: relative;
+}
+
+.technology__step--last .step-card__number {
+    z-index: 5;
+}
+
+/* Маскировка линии под последним шагом */
+.technology__step--last::after {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: -15px;
+    width: 30px;
+    height: 100%;
+    background-color: var(--color-background);
+    z-index: 4;
+}
+
+.step-card__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.step-card__description {
+    color: var(--color-text-light);
+}
+
+/* =========================================================================
+   Блок ВИЗУАЛА
+   ========================================================================= */
+
+.technology__visuals {
+    position: relative;
+    padding: var(--spacing-m);
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+
+.technology__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.technology__caption {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-secondary);
+    margin-top: var(--spacing-s);
+    justify-content: center;
+}
+
+.technology__caption i {
+    width: 20px;
+    height: 20px;
+}
+
+/* =========================================================================
+   АДАПТИВ
+   ========================================================================= */
+
+@media (max-width: 992px) {
+    .technology__container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-l);
+    }
+
+    .technology__visuals {
+        order: 1;
+    }
+
+    .technology__content {
+        order: 2;
+        text-align: center;
+    }
+
+    .technology__title {
+        font-size: 2.2rem;
+    }
+
+    .technology__steps {
+        padding-left: 0;
+        margin: var(--spacing-l) auto;
+        max-width: 400px;
+    }
+
+    .technology__steps::before {
+        left: 20px;
+    }
+
+    .step-card {
+        padding-left: var(--spacing-xl);
+    }
+
+    .step-card__number {
+        left: 0;
+    }
+
+    .technology__step--last::after {
+        left: 5px;
+    }
+
+    .technology__actions {
+        justify-content: center;
+    }
+}
