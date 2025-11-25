@@ -13,7 +13,7 @@
   <script type="module" crossorigin src="/neutr-xen/index.js"></script>
   <link rel="modulepreload" crossorigin href="/neutr-xen/assets/vendor-YE1i_CEl.js">
   <link rel="stylesheet" crossorigin href="/neutr-xen/assets/vendor-erHEUhN6.css">
-  <link rel="stylesheet" crossorigin href="/neutr-xen/assets/styles-DLixk8P5.css">
+  <link rel="stylesheet" crossorigin href="/neutr-xen/assets/styles-eOKWeceN.css">
 </head>
   <body>
     <header class="header">
@@ -384,6 +384,96 @@
 
     </div>
 </section>
+
+<section class="contact" id="contact">
+    <div class="contact__container container">
+
+        <div class="contact__form-wrapper">
+            <h2 class="contact__title">
+                Начните обучение за 2 минуты
+            </h2>
+            <p class="contact__subtitle">
+                Оставьте заявку, чтобы узнать перспективы проекта и получить доступ к передовой технологии.
+            </p>
+
+            <form class="contact__form form" id="contactForm" action="#" method="POST">
+                <div class="form__group">
+                    <label for="name" class="form__label">Имя:</label>
+                    <input type="text" id="name" name="name" class="form__input" placeholder="Ваше имя" required>
+                </div>
+
+                <div class="form__group">
+                    <label for="email" class="form__label">Email:</label>
+                    <input type="email" id="email" name="email" class="form__input" placeholder="example@mail.com"
+                        required>
+                </div>
+
+                <div class="form__group">
+                    <label for="phone" class="form__label">Телефон:</label>
+                    <input type="tel" id="phone" name="phone" class="form__input" placeholder="+38 (XXX) XXX XX XX">
+                </div>
+
+                <div class="form__group form__group--captcha">
+                    <label for="captcha" class="form__label">
+                        Подтвердите, что вы не робот: <span id="captchaQuestion" class="captcha-question"></span>
+                    </label>
+                    <input type="text" id="captcha" name="captcha" class="form__input" placeholder="Введите ответ"
+                        required>
+                </div>
+
+                <div class="form__group form__group--checkbox">
+                    <input type="checkbox" id="consent" name="consent" required>
+                    <label for="consent" class="form__label form__label--inline">
+                        Я согласен с условиями использования и политикой конфиденциальности.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn--primary form__submit-btn">
+                    Зарегистрироваться и начать
+                </button>
+
+                <p class="form__note">
+                    Подключение занимает 2 минуты после отправки формы.
+                </p>
+
+                <p id="formMessage" class="form__message" style="display:none;"></p>
+            </form>
+        </div>
+
+        <div class="contact__info-wrapper">
+            <h3 class="contact__info-title">
+                Ваш Проверенный Партнер
+            </h3>
+            <p class="contact__info-text">
+                Свяжитесь с нами для консультации или поддержки. Мы всегда на связи.
+            </p>
+
+            <ul class="contact__details">
+                <li>
+                    <i data-lucide="mail"></i>
+                    <a href="mailto:support@neutr-xen.com">support@neutr-xen.com</a>
+                </li>
+                <li>
+                    <i data-lucide="phone"></i>
+                    <a href="tel:+380441234567">+38 (044) 123-45-67</a>
+                </li>
+                <li>
+                    <i data-lucide="map-pin"></i>
+                    ул. Инновационная, 5, Киев, Украина
+                </li>
+            </ul>
+
+            <div class="contact__social">
+                <a href="#" aria-label="Telegram"><i data-lucide="send"></i></a>
+                <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
     </main>
 
     <footer class="footer">
