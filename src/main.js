@@ -149,3 +149,92 @@ if (typeof Swiper !== 'undefined') {
 } else {
     console.error('Swiper.js не загружен. Проверьте CDN-ссылку в HTML.');
 }
+
+// =========================================================================
+// ЛОГИКА ФОРМЫ КОНТАКТЫ + CAPTCHA
+// =========================================================================
+
+const contactForm = document.getElementById('contactForm');
+const captchaQuestionElement = document.getElementById('captchaQuestion');
+const formMessageElement = document.getElementById('formMessage');
+
+let captchaAnswer;
+
+// Функция для генерации CAPTCHA
+function generateCaptcha() {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    const operator = ['+', '-'][Math.floor(Math.random() * 2)];
+
+    let question, answer;
+
+    if (operator === '-') {
+        if (num1 < num2) {
+            question = `${num2} ${operator} ${num1}`;
+            answer = num2 - num1;
+        } else {
+            question = `${num1} ${operator} ${num2}`;
+            answer = num1 - num2;
+        }
+    } else {
+        question = `${num1} ${operator} ${num2}`;
+        answer = num1 + num2;
+    }
+
+    captchaQuestionElement.textContent = `Сколько будет ${question}?`;
+    captchaAnswer = answer;
+}
+
+// Генерируем CAPTCHA при загрузке страницы
+generateCaptcha();
+
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        const name = document.getElementById('name').value;
+        const captchaInput = parseInt(document.getElementById('captcha').value.trim());
+        const consentChecked = document.getElementById('consent').checked;
+        
+        formMessageElement.style.display = 'none'; 
+
+        // 1. Проверка CAPTCHA
+        if (captchaInput !== captchaAnswer) {
+            formMessageElement.textContent = 'Ошибка: Неверный ответ на CAPTCHA. Попробуйте еще раз.';
+            formMessageElement.className = 'form__message error';
+            formMessageElement.style.display = 'block';
+            generateCaptcha(); 
+            return; 
+        }
+
+        // 2. Проверка согласия
+        if (!consentChecked) {
+            formMessageElement.textContent = 'Ошибка: Вы должны согласиться с условиями использования.';
+            formMessageElement.className = 'form__message error';
+            formMessageElement.style.display = 'block';
+            return; 
+        }
+
+        // Если все проверки пройдены:
+        const submitButton = this.querySelector('.form__submit-btn');
+        submitButton.textContent = 'Отправка...';
+        submitButton.disabled = true;
+
+        setTimeout(() => {
+            // Имитация успешной отправки
+            console.log(`Форма успешно отправлена: Имя - ${name}`);
+
+            formMessageElement.textContent = `Спасибо, ${name}! Ваша заявка принята. С вами свяжутся в течение 2 минут для начала обучения!`;
+            formMessageElement.className = 'form__message success';
+            formMessageElement.style.display = 'block';
+
+            // Очистка формы и восстановление кнопки
+            contactForm.reset();
+            generateCaptcha(); 
+            submitButton.textContent = 'Зарегистрироваться и начать';
+            submitButton.disabled = false;
+
+        }, 1500); // Задержка 1.5 секунды
+    });
+}

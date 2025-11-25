@@ -692,3 +692,236 @@
         /* Скрываем стрелки на мобильных, используем свайп */
     }
 }
+
+/* =========================================================================
+   8. СЕКЦИЯ КОНТАКТЫ (#contact) - ФИНАЛЬНАЯ ВЕРСИЯ
+   ========================================================================= */
+
+.contact {
+    padding: var(--spacing-xxl) 0;
+    /* Самый темный фон для секции */
+    background-color: var(--color-background-darker);
+    color: var(--color-white);
+}
+
+.contact__container {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+}
+
+/* 1. БЛОК ФОРМЫ */
+.contact__form-wrapper {
+    padding: var(--spacing-l);
+    background-color: var(--color-background-dark);
+    /* Немного светлее, чем секция */
+    border-radius: 12px;
+    border: 1px solid var(--color-grey-dark);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.contact__title {
+    color: var(--color-white);
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-s);
+    font-family: var(--font-heading);
+}
+
+.contact__title strong {
+    color: var(--color-primary);
+}
+
+.contact__subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-l);
+}
+
+.form__label {
+    color: var(--color-white);
+}
+
+.form__input {
+    width: 100%;
+    padding: var(--spacing-s) var(--spacing-m);
+    /* Возвращаем рамку: тонкая серая рамка */
+    border: 1px solid var(--color-grey-light);
+    border-radius: 8px;
+    /* Добавим скругление */
+
+    background-color: var(--color-background-darker);
+    color: var(--color-white);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form__input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+    /* Ярче фокус */
+    outline: none;
+}
+
+.form__note strong {
+    color: var(--color-primary);
+}
+
+/* Стили для CAPTCHA */
+.captcha-question {
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+/* Стили для Чекбокса */
+.form__group--checkbox {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-m);
+}
+
+.form__group--checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: var(--spacing-s);
+    appearance: none;
+    border: 2px solid var(--color-grey-light);
+    border-radius: 4px;
+    background-color: var(--color-background-darker);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.form__group--checkbox input[type="checkbox"]:checked {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.form__label--inline {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    cursor: pointer;
+    margin: 0;
+    /* Убираем margin-bottom, который может быть у form__label */
+}
+
+/* Стили для сообщений формы (Успех/Ошибка) */
+.form__message {
+    text-align: center;
+    padding: var(--spacing-s);
+    border-radius: 8px;
+    margin-top: var(--spacing-m);
+    font-weight: 500;
+}
+
+.form__message.success {
+    background-color: rgba(0, 255, 0, 0.1);
+    color: #00FF00;
+    border: 1px solid #00FF00;
+}
+
+.form__message.error {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #FF0000;
+    border: 1px solid #FF0000;
+}
+
+
+/* 2. БЛОК ИНФОРМАЦИИ */
+.contact__info-wrapper {
+    /* Делаем фон максимально темным для контраста */
+    background-color: var(--color-background-dark);
+    padding: var(--spacing-l);
+    border-radius: 12px;
+    border: 1px solid var(--color-grey-dark);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+.contact__info-title {
+    color: var(--color-white);
+    /* Белый заголовок */
+    font-family: var(--font-heading);
+}
+
+.contact__info-title strong {
+    color: var(--color-secondary);
+}
+
+.contact__info-text {
+    color: var(--color-white);
+    /* Ярко-белый текст */
+    margin-bottom: var(--spacing-xl);
+}
+
+.contact__details {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--spacing-xxl);
+}
+
+.contact__details li {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-m);
+    color: var(--color-white);
+    /* Ярко-белый текст для элементов списка */
+}
+
+.contact__details li a {
+    color: var(--color-white);
+    /* Ярко-белый цвет для ссылок */
+}
+
+.contact__details li a:hover {
+    color: var(--color-primary);
+}
+
+.contact__social {
+    display: flex;
+    gap: var(--spacing-m);
+}
+
+.contact__social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.contact__social a:hover {
+    background-color: var(--color-secondary);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+}
+
+/* Адаптивность Контактов */
+@media (max-width: 992px) {
+    .contact__container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact__form-wrapper {
+        order: 2;
+    }
+
+    .contact__info-wrapper {
+        order: 1;
+        text-align: center;
+    }
+
+    .contact__details {
+        text-align: left;
+        display: inline-block;
+    }
+
+    .contact__social {
+        justify-content: center;
+    }
+}
