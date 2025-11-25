@@ -1,21 +1,131 @@
 .footer {
-  padding: 20px 0;
+  background-color: var(--color-background-dark);
+  color: var(--color-grey-light);
+  padding: var(--spacing-xl) 0 var(--spacing-s);
 }
-.footer-desc {
+
+.footer__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-l);
+  padding-bottom: var(--spacing-l);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--spacing-m);
+}
+
+.footer__logo {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: block;
+  margin-bottom: var(--spacing-s);
+}
+
+.footer__slogan {
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-m);
+}
+
+.footer__list {
+  list-style: none;
+}
+
+.footer__item {
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer__link,
+.footer__contact-link {
+  color: var(--color-grey-light);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+  display: block;
+}
+
+.footer__link:hover,
+.footer__contact-link:hover {
+  color: var(--color-primary);
+}
+
+.footer__address p {
+  margin-bottom: var(--spacing-xs);
+  font-style: normal;
+}
+
+.footer__socials a {
+  color: var(--color-grey-light);
+  margin-right: var(--spacing-s);
+  transition: color 0.2s;
+}
+
+.footer__socials a:hover {
+  color: var(--color-primary);
+}
+
+.footer__socials i {
+  width: 20px;
+  height: 20px;
+}
+
+.footer__copy {
   text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  padding-top: var(--spacing-s);
 }
-.footer-link {
-  position: relative;
+
+@media (max-width: 992px) {
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-l);
+  }
+
+  .footer__col--logo {
+    grid-column: span 2;
+    /* Логотип занимает две колонки вверху */
+  }
 }
-.footer-link::before {
-  content: '';
-  position: absolute;
-  bottom: 6%;
-  left: 50%;
-  transform: translateX(-50%) skewX(-12deg);
-  z-index: -1;
-  width: 110%;
-  height: 24%;
-  background-color: #41d1ff;
-  transition: 200ms ease;
+
+/* Мобильные устройства (до 768px) - 1 колонка, центрирование */
+@media (max-width: 768px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    /* Одна колонка */
+    gap: var(--spacing-xl);
+    text-align: center;
+    /* Ключевое: центрирование всего текста */
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .footer__col--logo {
+    grid-column: span 1;
+    /* Возвращаем одну колонку */
+  }
+
+  /* Убираем стандартный отступ для списков, чтобы они не были смещены влево */
+  .footer__list {
+    padding-left: 0;
+  }
+
+  /* Логотип по умолчанию display: block. Центрируем его */
+  .footer__logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Центрируем иконки соцсетей (потому что они display: inline) */
+  .footer__socials {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-m);
+  }
 }

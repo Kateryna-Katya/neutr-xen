@@ -1,0 +1,260 @@
+/* =========================================================================
+   3. СЕКЦИЯ HERO (ГЛАВНАЯ)
+   ========================================================================= */
+
+.hero {
+    background-color: var(--color-white);
+    padding: var(--spacing-xxl) 0;
+    min-height: 80vh;
+    /* Минимальная высота */
+    display: flex;
+    align-items: center;
+}
+
+.hero__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-l);
+    align-items: center;
+}
+
+.hero__content {
+    /* Чтобы контент был поверх всего */
+    position: relative;
+    z-index: 2;
+}
+
+/* Бейдж ЕС */
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background-color: var(--color-grey-light);
+    color: var(--color-text-dark);
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-m);
+    opacity: 0.8;
+}
+
+.hero__badge i {
+    width: 16px;
+    height: 16px;
+    color: var(--color-primary);
+}
+
+.hero__title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-m);
+}
+
+/* Выделение анимированного текста */
+.hero__animate-text {
+    color: var(--color-primary);
+    display: block;
+}
+
+.hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-l);
+}
+
+.hero__actions {
+    display: flex;
+    gap: var(--spacing-m);
+}
+
+/* Визуальный блок с кодом */
+.hero__visuals {
+    position: relative;
+    padding: var(--spacing-m);
+    background-color: var(--color-background-dark);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    min-height: 350px;
+    overflow: hidden;
+    opacity: 0;
+    /* Будет анимировано в JS */
+}
+
+.hero__code-window {
+    font-family: monospace;
+    color: #4CAF50;
+    /* Зеленый цвет для кода */
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+#animated-code {
+    opacity: 1;
+    display: block;
+    white-space: pre-wrap;
+}
+
+/* Адаптивность Hero */
+@media (max-width: 992px) {
+    .hero__container {
+        grid-template-columns: 1fr;
+        /* Один столбец */
+        text-align: center;
+    }
+
+    .hero__title {
+        font-size: 2.5rem;
+    }
+
+    .hero__actions {
+        justify-content: center;
+    }
+
+    .hero__visuals {
+        display: none;
+        /* Скрываем на планшетах/мобильных для экономии места */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: var(--spacing-l) 0;
+    }
+
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        /* Кнопки друг под другом */
+        gap: var(--spacing-s);
+    }
+
+    .hero__btn-cta,
+    .hero__btn-details {
+        width: 100%;
+    }
+}
+
+/* =========================================================================
+   4. СЕКЦИЯ ПРОГРАММА (#program)
+   ========================================================================= */
+
+.program {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-background);
+}
+
+.program__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--spacing-s);
+}
+
+.program__title--highlight {
+    color: var(--color-primary);
+}
+
+.program__subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-light);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.program__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-l);
+}
+
+/* Стили для карточек */
+.program-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-l);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--color-primary);
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.program-card__icon-wrapper {
+    background-color: var(--color-primary);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-m);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.program-card__icon-wrapper i {
+    color: var(--color-white);
+    width: 28px;
+    height: 28px;
+}
+
+.program-card__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-s);
+}
+
+.program-card__description {
+    font-size: 1rem;
+    color: var(--color-text-light);
+}
+
+/* CTA внизу секции */
+.program__cta-bottom {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-m);
+    background-color: var(--color-grey-light);
+    border-radius: 8px;
+}
+
+.program__cta-bottom p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-s);
+    color: var(--color-text-dark);
+}
+
+.program__btn-quiz i {
+    margin-right: var(--spacing-xs);
+    width: 20px;
+    height: 20px;
+}
+
+/* Адаптивность Программы */
+@media (max-width: 768px) {
+    .program {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .program__title {
+        font-size: 2rem;
+    }
+
+    .program__subtitle {
+        margin-bottom: var(--spacing-l);
+    }
+}
+
+@media (max-width: 576px) {
+    .program-card {
+        padding: var(--spacing-m);
+    }
+}
